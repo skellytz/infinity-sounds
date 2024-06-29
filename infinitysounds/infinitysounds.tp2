@@ -5,6 +5,7 @@ README  ~infinitysounds/lang/%LANGUAGE%/readme-infinitysounds.html~ ~infinitysou
 AUTO_EVAL_STRINGS
 ASK_EVERY_COMPONENT
 LANGUAGE ~English~ ~en-us~ ~infinitysounds/lang/en-us/setup.tra~
+LANGUAGE ~German~ ~de-de~ ~infinitysounds/lang/de-de/setup.tra~
 
 // Restore BG1 Spellcasting Voices
 BEGIN @100 DESIGNATED 100 LABEL ~s@-IS-BG1-Spell-Voices~
@@ -11104,12 +11105,14 @@ BUT_ONLY IF_EXISTS
 // Restore NPC Voiceovers
 BEGIN @265 DESIGNATED 265 LABEL ~s@-IS-Restore-NPC-Voiceovers~
 REQUIRE_PREDICATE (GAME_IS ~tob bg2ee eet~) @1
-REQUIRE_PREDICATE (~%LANGUAGE%~ STR_EQ ~en-us~) @6
+REQUIRE_PREDICATE (~%LANGUAGE%~ STR_EQ ~en-us~ OR ~%LANGUAGE%~ STR_EQ ~de-de~) @6
 
 PRINT @4 SILENT
 
 ACTION_IF (!MOD_IS_INSTALLED ~bg2gtueestyle.tp2~ ~0~) BEGIN
-  COPY ~infinitysounds/copy/wav/265_vo~ ~override~
+  ACTION_IF (~%LANGUAGE%~ STR_EQ ~en-us~) BEGIN
+    COPY ~infinitysounds/copy/wav/265_vo~ ~override~
+  END
 
   ACTION_DEFINE_ASSOCIATIVE_ARRAY ary_restore_unused_vos BEGIN
       118 => raelis19 // "Ah, Mekrath's prize! (...)"
