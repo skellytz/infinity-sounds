@@ -942,7 +942,9 @@ BEGIN @224 SUBCOMPONENT @220 DESIGNATED 224 LABEL ~s@-IS-Restore-EAX-Speakers~
 REQUIRE_PREDICATE (GAME_IS ~tob~) @1
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY ary_alsoft_cfg BEGIN
-  stereo-mode => speakers
+  stereo-mode     => speakers
+  stereo-encoding => basic
+  cf_level        => 3
 END
 
 INCLUDE ~infinitysounds/setup/220-restore-eax.tpa~
@@ -985,7 +987,9 @@ REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet~) @1
 REQUIRE_PREDICATE (~%WEIDU_OS%~ STR_EQ ~win32~) @12
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY ary_alsoft_cfg BEGIN
-  stereo-mode => speakers
+  stereo-mode     => speakers
+  stereo-encoding => basic
+  cf_level        => 3
 END
 
 INCLUDE ~infinitysounds/setup/221-enhance-3d-audio.tpa~
